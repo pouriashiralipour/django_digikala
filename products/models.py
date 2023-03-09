@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -10,7 +11,8 @@ class Products(models.Model):
     )
     title = models.CharField(max_length=500, verbose_name=_('title'))
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, verbose_name=_('slug'))
-    description = models.TextField(verbose_name=_('description'))
+    short_description = RichTextField(verbose_name=_('short description'), blank=True)
+    description = RichTextField(verbose_name=_('description'), blank=True)
     price = models.PositiveIntegerField(verbose_name=_('price'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
