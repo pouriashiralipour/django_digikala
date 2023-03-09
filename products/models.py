@@ -1,6 +1,8 @@
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 
@@ -24,3 +26,12 @@ class Products(models.Model):
         verbose_name = _('product')
         verbose_name_plural = _('products')
         ordering = ['-datetime_created']
+
+    def cover_img(self):
+        return format_html("<img width=60 src='{}'>".format(self.image.url))
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('products:details_view', args=[self.slug])
