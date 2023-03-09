@@ -14,6 +14,7 @@ class Products(models.Model):
     price = models.PositiveIntegerField(verbose_name=_('price'))
     active = models.BooleanField(default=True, verbose_name=_('active'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=3, default='ava', verbose_name=_('status'))
+    image = models.ImageField(upload_to='covers/', verbose_name=_('image'))
     datetime_created = models.DateTimeField(default=timezone.now, verbose_name=_('datetime_created'))
     datetime_modified = models.DateTimeField(auto_now=True, verbose_name=_('datetime_modified'))
 
