@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'ckeditor',
+    'jalali_date',
 
 ]
 
