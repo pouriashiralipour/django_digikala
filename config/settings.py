@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'jalali_date',
     'import_export',
+    'crispy_forms',
 
 ]
 
