@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'ckeditor',
     'jalali_date',
+    'import_export',
 
 ]
 
