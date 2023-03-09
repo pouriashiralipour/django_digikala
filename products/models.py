@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
+from categories.models import Category
+
 
 class Products(models.Model):
     STATUS_CHOICES = (
@@ -13,6 +15,7 @@ class Products(models.Model):
     )
     title = models.CharField(max_length=500, verbose_name=_('title'))
     slug = models.SlugField(max_length=500, unique=True, allow_unicode=True, verbose_name=_('slug'))
+    category = models.ManyToManyField(Category, verbose_name=_('category'), related_name='products')
     short_description = RichTextField(verbose_name=_('short description'), blank=True)
     description = RichTextField(verbose_name=_('description'), blank=True)
     price = models.PositiveIntegerField(verbose_name=_('price'))
@@ -30,8 +33,13 @@ class Products(models.Model):
     def cover_img(self):
         return format_html("<img width=60 src='{}'>".format(self.image.url))
 
+    cover_img.short_description = _('image')
+
     def __str__(self):
         return self.title
+
+    def category_published(self):
+        return self.category.filter(status=True)
 
     def get_absolute_url(self):
         return reverse('products:details_view', args=[self.slug])
