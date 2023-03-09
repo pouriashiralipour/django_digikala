@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'import_export',
     'crispy_forms',
+    'crispy_bootstrap4',
 
 ]
 
@@ -179,3 +180,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
