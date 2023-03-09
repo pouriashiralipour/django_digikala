@@ -6,6 +6,8 @@ cryptography==39.0.2
 defusedxml==0.7.1
 Django==4.1.7
 django-allauth==0.52.0
+django-ckeditor==6.5.1
+django-js-asset==2.0.0
 environs==9.5.0
 idna==3.4
 marshmallow==3.19.0

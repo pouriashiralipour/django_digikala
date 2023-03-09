@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # third party
     'allauth',
     'allauth.account',
+    'ckeditor',
 
 ]
 
